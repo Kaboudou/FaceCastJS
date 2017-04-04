@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  div(id='wrapper')
+
+    div(id='main')
+      div(class='inner')
+
+        header(id='header')
+          h1= title       
+
+        section(id='banner')
+          div(class='content')
+            header
+              h2= 'Formulaire'
+            form#formAddUser(name="adduser",method="post",action="/insert/adduser")
+              input#inputUserName(type="text", placeholder="username", name="username")
+              input#inputUserPassword(type="text", placeholder="userpassword", name="userpassword")
+              button#btnSubmit(type="submit") submit
+
+    div(id='sidebar')
+      div(class='inner')
+
+        nav(id='menu')
+          header(class='major')
+            h2= 'Menu'
+
+          ul
+            li
+              a(href='/') Accueil
+            li
+              a(href='/users') Liste des utilisateurs
+            li
+              a(href='/insert') Insertion d'un utilisateur
+            li  
+              a(href='/events') Evènement
+            li  
+              a(href='/figurant') Figurant
+              
+       
+        footer(id='footer')
+          p(class='copyright')= 'BTS SIO SLAM.'   
+    

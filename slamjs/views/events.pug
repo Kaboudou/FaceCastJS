@@ -1,0 +1,61 @@
+extends layout
+
+block content
+  div(id='wrapper')
+
+    div(id='main')
+      div(class='inner')
+
+        header(id='header')
+          h1= title       
+
+        section(id='banner')
+          div(class='content')
+            header
+              h2='Evenement'
+            ul
+              each event, i in eventlist
+                table
+                  th Nom
+                  th Type
+                  th Date
+                  th Place
+                  tr
+                  td=event.nom
+                  td=event.type
+                  td=event.date
+                  td=event.place
+                  
+              h4="Ajout évènement"
+            form#formAddUser(name="addevent",method="post", action="/events/addevent")
+               input#inputEventName(type="text", placeholder="nom", name="nom")
+            
+               input#inputEventType(type="text",placeholder="type",name="type")
+            
+               input#inputEventDate(type="date",placeholder="date",name="date")
+            
+               input#inputEventplace(type="text",placeholder="place",name="place")
+            
+               button#btnSubmit(type="submit") submit
+    div(id='sidebar')
+      div(class='inner')
+
+        nav(id='menu')
+          header(class='major')
+            h2= 'Menu'
+
+          ul
+            li
+              a(href='/') Accueil
+            li
+              a(href='/users') Liste des utilisateurs
+            li
+              a(href='/insert') Insertion d'un utilisateur
+            li  
+              a(href='/events') Evènement
+            li  
+              a(href='/figurant') Figurant
+              
+       
+        footer(id='footer')
+          p(class='copyright')= 'BTS SIO SLAM.'        

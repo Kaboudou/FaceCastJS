@@ -1,0 +1,59 @@
+extends layout
+
+block content
+  div(id='wrapper')
+
+    div(id='main')
+      div(class='inner')
+
+        header(id='header')
+          h1= title       
+
+        section(id='banner')
+          div(class='content')
+            header
+              h2='Figurant'
+            ul
+              each figurant, i in figurantlist
+                table
+                  th Nom
+                  th Date
+                  th Demande
+                  tr
+                  td=figurant.nom
+                  td=figurant.date
+                  td=figurant.demande
+                
+              h4="Ajout figurant"
+            form#formAddFig(name="addfig",method="post", action="/figurant/addfig")
+              input#inputFigName(type="text", placeholder="nom", name="nom")
+            
+              input#inputFigDate(type="date", placeholder="birthday",name="date")
+            
+              input#inputFigDem(type="text", placeholder="demande",name="demande")
+            
+            
+                        
+            button#btnSubmit(type="submit") submit
+    div(id='sidebar')
+      div(class='inner')
+
+        nav(id='menu')
+          header(class='major')
+            h2= 'Menu'
+
+          ul
+            li
+              a(href='/') Accueil
+            li
+              a(href='/users') Liste des utilisateurs
+            li
+              a(href='/insert') Insertion d'un utilisateur
+            li  
+              a(href='/events') Evènement
+            li  
+              a(href='/figurant') Figurant
+              
+       
+        footer(id='footer')
+          p(class='copyright')= 'BTS SIO SLAM.'           
