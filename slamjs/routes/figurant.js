@@ -36,4 +36,18 @@ router.post('/addfig', function(req, res) {
    });
 });
 
+router.post("/delete/:id", function(req,res){
+    var db = req.db;
+    var id = req.params.id;
+    
+                
+    figurant.findByIdAndRemove({"_id": id },
+      function(err,doc){
+        if(err) res.json(err);
+        else   res.redirect('/figurant');
+        
+    });
+    
+});
+
 module.exports = router;

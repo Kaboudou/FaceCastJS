@@ -16,6 +16,7 @@ router.post('/addevent', function(req, res) {
    var eventNom = req.body.nom;
    var eventType = req.body.type;
    var eventDate = req.body.date;
+   var eventAdresse = req.body.adresse;
    var eventPlace = req.body.place;
 
    // Création de l'objet utilisateur suivant le schéma
@@ -23,6 +24,7 @@ router.post('/addevent', function(req, res) {
       "nom" : eventNom,
       "type" : eventType,
       "date": eventDate,
+      "adresse" : eventAdresse,
       "place": eventPlace
    });
        
@@ -38,16 +40,26 @@ router.post('/addevent', function(req, res) {
    });
 });
 
-/*router.get("/delete",function(req,res){
-   var id = req.query.id;
-   var db = req.db;
-   var event = req.db.('events');
-    
-   event.remove({ id:':id'},function (err){
-     if (err) return handleError(err);
-                });
+router.post("/delete/:id", function(req,res){
+    var db = req.db;
+    var id = req.params.id;
     
     
-}); */
+       
+  /** event.remove({ id:':id'},function (err){
+     if (err){ return handleError(err);
+     res.send('error'); }
+     else {
+         res.redirect("/events");
+     }
+                });*/
+    event.findByIdAndRemove({"_id": id },
+      function(err,doc){ 
+        if(err) res.json(err);
+        else   res.redirect('/events');
+        
+    });
+    
+}); 
 
 module.exports = router;

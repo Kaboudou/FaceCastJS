@@ -19,13 +19,20 @@ block content
                   th Nom
                   th Type
                   th Date
+                  th Adresse
                   th Place
+                  th Supprimer
                   tr
-                  td=event.nom
+                  td/a(href='/events/'+event._id)=event.nom
                   td=event.type
                   td=event.date
+                  td=event.adresse
                   td=event.place
-                  
+                  td
+                    form#DeleteEvent(name="delete", action="/events/delete/"+event._id, method="post")
+                      input(type="hidden",name="_method", value="DELETE")
+                      button#btnSubmit1(type="submit") Supprimer
+                    
               h4="Ajout évènement"
             form#formAddUser(name="addevent",method="post", action="/events/addevent")
                input#inputEventName(type="text", placeholder="nom", name="nom")
@@ -33,6 +40,8 @@ block content
                input#inputEventType(type="text",placeholder="type",name="type")
             
                input#inputEventDate(type="date",placeholder="date",name="date")
+               
+               input#inputEventAdresse(type="adresse",placeholder="adresse",name="adresse")
             
                input#inputEventplace(type="text",placeholder="place",name="place")
             
@@ -58,4 +67,4 @@ block content
               
        
         footer(id='footer')
-          p(class='copyright')= 'BTS SIO SLAM.'        
+          p(class='copyright')= 'BTS SIO SLAM.'

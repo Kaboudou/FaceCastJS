@@ -19,10 +19,15 @@ block content
                   th Nom
                   th Date
                   th Demande
+                  th Supprimer
                   tr
                   td=figurant.nom
                   td=figurant.date
                   td=figurant.demande
+                  td
+                    form#DeleteFig(name="delete", action="/figurant/delete/"+figurant._id, method="post")
+                      input(type="hidden",name="_method", value="DELETE")
+                      button#btnSubmit1(type="submit") Supprimer
                 
               h4="Ajout figurant"
             form#formAddFig(name="addfig",method="post", action="/figurant/addfig")
@@ -32,9 +37,7 @@ block content
             
               input#inputFigDem(type="text", placeholder="demande",name="demande")
             
-            
-                        
-            button#btnSubmit(type="submit") submit
+              button#btnSubmit(type="submit") submit
     div(id='sidebar')
       div(class='inner')
 
