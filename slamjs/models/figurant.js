@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var figurantSchema  = new mongoose.Schema({
     "nom" : String,
     "dateNaissance" : Date,
-    "demande" : String
+    "email" : String
 });
 
 module.exports = mongoose.model('figurant',figurantSchema,'figurant');

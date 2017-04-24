@@ -2,12 +2,35 @@ doctype html
 html(lang='fr')
   head
     title= title
+    link(rel='stylesheet', href='./stylesheets/style.css')
     link(rel='stylesheet', href='./assets/css/main.css')
     meta(name='viewport', content='width=device-width, initial-scale=1',user-scalable='no')
     meta(charset='utf-8')
     
   body
-    block content
+    div(id='wrapper')
+      block content
+    
+      div(id='sidebar')
+        div(class='inner')
+
+          nav(id='menu')
+            header(class='major')
+              h2= 'Menu'
+
+            ul
+              li
+                a(href='/') Accueil
+              li  
+                a(href='/events') Evènement
+              li    
+                a(href='/figurant') Figurant
+              li
+                a(href='/roles') Roles
+              
+       
+          footer(id='footer')
+            p(class='copyright')= 'BTS SIO SLAM.'
     
 script(src='./assets/js/jquery.min.js')
 script(src='./assets/js/skel.min.js')

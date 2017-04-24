@@ -1,7 +1,6 @@
 extends layout
 
 block content
-  div(id='wrapper')
 
     div(id='main')
       div(class='inner')
@@ -18,26 +17,5 @@ block content
                 li
                   = user.username
 
-    div(id='sidebar')
-      div(class='inner')
-
-        nav(id='menu')
-          header(class='major')
-            h2= 'Menu'
-
-          ul
-            li
-              a(href='/') Accueil
-            li
-              a(href='/users') Liste des utilisateurs
-            li
-              a(href='/insert') Insertion d'un utilisateur
-            li  
-              a(href='/events') Evènement
-            li  
-              a(href='/figurant') Figurant
-              
        
-        footer(id='footer')
-          p(class='copyright')= 'BTS SIO SLAM.'   
     

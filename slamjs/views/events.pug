@@ -1,7 +1,6 @@
 extends layout
 
 block content
-  div(id='wrapper')
 
     div(id='main')
       div(class='inner')
@@ -23,7 +22,8 @@ block content
                   th Place
                   th Supprimer
                   tr
-                  td/a(href='/events/'+event._id)=event.nom
+                  td/a(href='/events/'+event._id)
+                    =event.nom
                   td=event.type
                   td=event.date
                   td=event.adresse
@@ -46,25 +46,4 @@ block content
                input#inputEventplace(type="text",placeholder="place",name="place")
             
                button#btnSubmit(type="submit") submit
-    div(id='sidebar')
-      div(class='inner')
-
-        nav(id='menu')
-          header(class='major')
-            h2= 'Menu'
-
-          ul
-            li
-              a(href='/') Accueil
-            li
-              a(href='/users') Liste des utilisateurs
-            li
-              a(href='/insert') Insertion d'un utilisateur
-            li  
-              a(href='/events') Evènement
-            li  
-              a(href='/figurant') Figurant
-              
-       
-        footer(id='footer')
-          p(class='copyright')= 'BTS SIO SLAM.'
+               

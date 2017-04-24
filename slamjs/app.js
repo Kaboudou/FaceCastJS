@@ -16,6 +16,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var insert = require('./routes/insert');
 var android = require('./routes/android');
+var roles = require('./routes/roles');
 var events = require('./routes/events');
 var figurant = require('./routes/figurant');
 
@@ -43,6 +44,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/insert', insert);
 app.use('/android', android);
+app.use('/roles', roles);
 app.use('/events', events);
 app.use('/figurant', figurant);
 

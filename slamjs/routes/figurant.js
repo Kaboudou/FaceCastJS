@@ -15,13 +15,13 @@ router.post('/addfig', function(req, res) {
     // Récupération des valeurs du formulaire
    var figurantNom = req.body.nom;
    var figurantDate = req.body.date;
-   var figurantDemande = req.body.demande;
+   var figurantEmail = req.body.email;
 
    // Création de l'objet utilisateur suivant le schéma
    var newFigurant = new figurant({
       "nom" : figurantNom,
       "date" : figurantDate,
-      "demande": figurantDemande,
+      "email": figurantEmail,
    });
        
    newFigurant.save( function (err,doc) {
